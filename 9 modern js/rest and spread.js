@@ -3,7 +3,7 @@
 //destructuring is an ES6 feature it is a way of unpacking values from an array or an object into separate variables > is to break a complex data structure down into a smaller data structure like a variable
 
 //the spread operator is a bit similiar to destructuring, because it also helps us get elements out of arrays, but the big difference is that the spread operat  takes all the elements from the array and it doesnt create new variables. as a consequence, we can only use it in places where we would otherwise write values separated by commas.
-
+/*
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -164,7 +164,7 @@ console.log(ingredients); //it logged all the prompts we wrote
 
 restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); //Here is your delicious pasta with a, b and c
 restaurant.orderPasta(...ingredients); //Here is your delicious pasta with a, b and c >>> more modern way!
-*/
+
 //even though objects are not iterables, since ES2018 the spread operators also works on objects
 
 // objects
@@ -290,7 +290,7 @@ const [f = 1, g = 1, h = 1] = [8, 9];
 console.log(f, g, h); // 8 9 undefined BUT since r = 1, now 8 9 1, because we set a default value. if we exclude 9, it would log 8 1 1
 
 /////////////////////////
-/*
+
 RECAP 
 
 the spread and the rest syntax look exactly the same '...something' but they work in opposite ways depending on where they are used:
