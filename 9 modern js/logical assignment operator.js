@@ -31,7 +31,7 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
-
+/*
 const rest1 = {
   name: 'Capri',
   numGuests: 0,
@@ -63,13 +63,13 @@ const rest4 = {
   name: 'Pizzaria',
   owner: 'Giuseppe Ferrara',
 };
-
+*/
 /*
 rest3.numGuests ||= 10; 
 console.log(rest3); //{name: 'Ristorantte', numGuests: 10}
 //since 0 is a falsy value, the OR operator skips it to find the next truthy value. the OR operator will assign a value to a variable if that exact variable is falsy right now
 */
-
+/*
 // nullish assignment operator (null or undefined)
 rest3.numGuests ??= 10;
 rest4.numGuests ??= 10;
@@ -79,7 +79,7 @@ console.log(rest4); //{name: 'Pizzaria', owner: 'Giuseppe Ferrara', numGuests: 1
 //since 0 is not included in the nullish values, it is considered as a truthy value, therefore it is returned as 'rest3.numGuests = 0'. but 'numGuests' are not defined in 'rest4', therefore its value is 'undefined', considered as a falsy value, so it is ignored, and the next value is 10, a truthy value, that is then returned.
 
 //the nullish operator will assign a value to a variable if the current value of that variable is nullish, that is undefined or 'null'
-
+*/
 // AND assignment operator
 /*
 rest3.owner = rest3.owner && '<ANONYMOUS>';
@@ -88,7 +88,7 @@ rest4.owner = rest4.owner && '<ANONYMOUS>';
 console.log(rest3); //{name: 'Ristorantte', numGuests: 0, owner: undefined}
 //since 'owner' does not exists, it is undefined, the AND operator will stop the evaluation and return the first falsy value > 'undefined'
 */
-
+/*
 rest3.owner &&= '<ANONYMOUS>';
 rest4.owner &&= '<ANONYMOUS>';
 
@@ -99,3 +99,4 @@ console.log(rest4); //{name: 'Pizzaria', owner: '<ANONYMOUS>', numGuests: 10}
 //since 'rest4.owner' is a truthy value (because it exists), it was replaced with the second value
 
 //if you ever need to assign a value to a variable that is already defined > that has a value that is currently truthy, you can use this AND assignment operator
+*/

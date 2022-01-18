@@ -33,6 +33,7 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
 // SHORT CIRCUITING
 
 console.log('------ OR -------');
