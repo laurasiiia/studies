@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -102,3 +102,4 @@ const winner =
 //course answer:
 team1.odds < team2.odds && console.log('Team 1 is more likely to win');
 team1.odds > team2.odds && console.log('Team 2 is more likely to win');
+*/
