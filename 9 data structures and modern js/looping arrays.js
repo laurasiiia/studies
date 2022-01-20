@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
@@ -44,7 +44,7 @@ const restaurant = {
 };
 // FOR-OF LOOPS
 
-/*
+
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 for (const item of menu) console.log(item); //it logged all of the elements in the menu (starter + main) individually in the console
