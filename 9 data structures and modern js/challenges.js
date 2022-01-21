@@ -108,7 +108,7 @@ team1.odds > team2.odds && console.log('Team 2 is more likely to win');
 */
 
 // #2
-
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -141,7 +141,7 @@ const game = {
     ],
   ],
   score: '4:0',
-  scored: ['Lewandoski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
   date: 'Nov 9th, 2037',
   odds: {
     team1: 1.33,
@@ -159,6 +159,7 @@ for (const [goal, player] of game.scored.entries()) {
 const odds = Object.values(game.odds);
 let average = 0;
 for (const odd of odds) average += odd;
+// average = average / odds.length;
 average /= odds.length;
 console.log(average);
 
@@ -167,3 +168,25 @@ for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
   console.log(`Odd of ${teamStr}: ${odd}`);
 }
+
+// bonus.
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log(scorers);
+//or:
+let scorers = {};
+let bucket = ];
+let players = game.scored;
+
+for (const player of players) {
+  if (bucket.includes(player)) {
+    scorers[player]++;
+  } else {
+    scorers[player] = 1;
+    bucket.push(player);
+  }
+}
+console.log(scorers);
+*/
