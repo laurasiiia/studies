@@ -2,31 +2,6 @@
 
 ///////////// SETS ////////////////////
 /*
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-};
-
-// SETS
-
 //a set is basically a collection of unique values > a set can never have any duplicates
 
 const ordersSet = new Set([
@@ -103,29 +78,7 @@ console.log(new Set('jonasschmedtmann').size); //11
 */
 
 ///////////////// MAPS //////////////////
-
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-};
+/*
 
 //a map is a data structure that we can use to map values to keys, just like an object, data is stored in key value pairs in maps. the difference between objects and maps is that in maps, the keys can have any type: strings, objects, arrays or other maps
 
@@ -173,7 +126,7 @@ rest.set([1, 2], 'Test');
 console.log(rest); //in the entries: 7: {Array(2) => "Test"}
 
 console.log(rest.get([1, 2])); //undefined
-//these two arrays in line 172 and line 175 are not the same, because they are not the same object in the heap. the key in line 172 is exacly this object in memory and not in the line 175. in order to make it work we would have to do:
+//these two arrays in line 125 and line 128 are not the same, because they are not the same object in the heap. the key in line 125 is exacly this object in memory and not in the line 128. in order to make it work we would have to do:
 const arr = [1, 2];
 rest.set(arr, 'Test');
 console.log(rest.get(arr)); //Test
@@ -184,3 +137,69 @@ console.log(rest); //in the entries: 9: {h1 => "Heading"}
 //if we pass our mouse into it on the console, the h1 on the page turns blue
 
 //both sets and maps were introduced in ES6
+*/
+/*
+//another way of populating a new map without using the set method:
+const question = new Map([
+  ['question', 'what is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again'],
+]);
+console.log(question); //Map(7) {'question' => 'what is the best programming language in the world?', 1 => 'C', 2 => 'Java', 3 => 'JavaScript', 'correct' => 3, …}
+//this is a much easier way to put a lot of elements into the map at the same time
+
+const restaurant = {
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0,
+      close: 24,
+    },
+  },
+};
+
+//convert object to map
+console.log(Object.entries(restaurant.openingHours)); //(3) [Array(2), Array(2), Array(2)
+// 0: (2) ['thu', {…}]
+// 1: (2) ['fri', {…}]
+// 2: (2) ['sat', {…}]
+//this is the same as calling line 152, because its the same array structure that is returned, because in there we get an array where the first element is the key, and the second one is the value.
+
+//what this means is that there is an easy way to convert from objects to maps
+
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(hoursMap); //Map(3) {'thu' => {…}, 'fri' => {…}, 'sat' => {…}}
+//is exacly the same as 'question' map: an array of arrays
+
+//maps are also iterables, and since objects are not iterables, we couldnt loop over it, so we would have to transform its entries into a map, so we could '(const x of map)':
+//quiz app
+console.log(question.get('question')); //what is the best programming language in the world?
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+} //Answer 1: C Answer 2: Java Answer 3: JavaScript
+
+// const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+console.log(question.get(answer === question.get('correct')));
+
+//convert map to array
+console.log(...question); //(2) ['question', 'what is the best programming language in the world?'] (2) [1, 'C'] (2) [2, 'Java'] (2) [3, 'JavaScript'] (2) ['correct', 3] (2) [true, 'Correct 🎉'] (2) [false, 'Try again']
+//an array of arrays
+// console.log(question.entries()); //MapIterator {'question' => 'what is the best programming language in the world?', 1 => 'C', 2 => 'Java', 3 => 'JavaScript', 'correct' => 3, …}
+console.log(question.keys()); //MapIterator {'question', 1, 2, 3, 'correct', …}
+console.log([...question.keys()]); //(7) ['question', 1, 2, 3, 'correct', true, false]
+console.log(question.values()); //MapIterator {'what is the best programming language in the world?', 'C', 'Java', 'JavaScript', 3, …}
+console.log([...question.values()]); //(7) ['what is the best programming language in the world?', 'C', 'Java', 'JavaScript', 3, 'Correct 🎉', 'Try again']
+*/
