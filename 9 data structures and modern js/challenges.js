@@ -192,7 +192,7 @@ console.log(scorers);
 */
 
 // #3
-
+/*
 const gameEvents = new Map([
   [17, '⚽ GOAL'],
   [36, '🔁 Substitution'],
@@ -242,3 +242,4 @@ for (const [minutes, events] of gameEvents) {
 }
 
 //yay i did this one all by myself :) really fun
+*/
