@@ -1,11 +1,8 @@
 'use strict';
 
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 const airline = 'TAP Air Portugal';
-const plane = 'A320';
-
+// const plane = 'A320';
+/*
 //just like in arrays, we can get the character of a string at a certain position:
 console.log(plane[0]); //A
 console.log(plane[1]); //3, but not as a number, for that we would have to convert
@@ -69,3 +66,156 @@ console.log(new String('jonas')); //String {'jonas'}
 console.log(typeof new String('jonas')); //object1
 //this conversion is what js makes behind the scenes whenever we call a method on a string. and then when the operation is done, the object is converted back to a regular string primitive. all string methods return primitives, even if called on a string object:
 console.log(typeof new String('jonas').slice(1)); //string
+
+//changing the case of a string
+console.log(airline.toLowerCase()); //tap air portugal
+console.log('jonas'.toUpperCase()); //JONAS
+
+//fix capitalization in name
+const passenger = 'jOnAS'; // it should look like 'Jonas'
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect); //Jonas
+
+//creating a function to do that (assignment):
+const fixName = function (name) {
+  const nameLower = name.toLowerCase();
+  const nameCorrect = nameLower[0].toUpperCase() + nameLower.slice(1);
+  console.log(nameCorrect);
+};
+fixName('lAuRA'); //Laura
+
+//comparing user input email
+const email = 'hello@laura.com';
+const loginEmail = '  Hello@Laura.COm \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail); //hello@laura.com
+
+//doing everything at the same time:
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail); //hello@laura.com
+console.log(email === normalizedEmail); //true
+
+//creating a function for that (assignment):
+const fixEmail = function (loginEmail) {
+  const fixedEmail = loginEmail.toLowerCase().trim();
+  if (fixedEmail === email) console.log('This email is already registered');
+  else console.log('This email is not registered yet');
+};
+fixEmail(loginEmail); //this email is already registered
+
+//replace parts of strings
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.'); //288.97$
+console.log(priceUS);
+
+const announcement = 'All passagers come to boarding door 23. Boarding door 23';
+console.log(announcement.replace('door', 'gate')); //All passagers come to boarding gate 23. Boarding door 23
+//but its only the first appearence of 'door'
+console.log(announcement.replaceAll('door', 'gate')); //All passagers come to boarding gate 23. Boarding gate 23
+//or we can use regular expression:
+// console.log(announcement.replace(⁄door⁄g, 'gate')); DOESNT WORK
+
+//it is also case sensitive
+
+//methods that returns booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320')); //true
+console.log(plane.includes('Boeing')); //false
+
+console.log(plane.startsWith('Bus')); //false
+console.log(plane.startsWith('Air')); //true
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family'); //it got logged
+}
+
+// practices exercises
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+checkBaggage('I have a laptop, some Food and a pocket Knife'); //You are not allowed on board
+checkBaggage('Socks and camera'); //Welcome aboard!
+checkBaggage('Got some snacks and a gun for protection'); //You are not allowed on board
+//if we didnt put 'bagagge' on lower case, it wouldnt recognize 'Knife' from the first function call on line 145, because its case sensitive therefore 'knife' !== 'Knife'
+*/
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+//split and join
+console.log('a+very+nice+string'.split('+')); //(4) ['a', 'very', 'nice', 'string']
+//it stored the splitted elements into a new array
+console.log('Jonas Schmedtmann'.split(' ')); //(2) ['Jonas', 'Schmedtmann']
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+console.log(firstName); //Jonas
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName); //Mr. Jonas SCHMEDTMANN
+
+//join is the opposite of split. using empty strings to split or join can create new strings like line 161 or to cut words out like line 158
+
+//capitalizing the full name
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  let upperName = [];
+  for (const n of names) {
+    upperName.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(...upperName);
+  // console.log(upperName.join(' ')); //COURSE METHOD
+};
+capitalizeName('jessica ann smith davis'); //Jessica Ann Smith Davis
+capitalizeName('laura loyola'); //Laura Loyola
+
+//quick challenge, rewrite 'capitalizeName' function in another way:
+const capitalizeName2 = function (name) {
+  const names = name.split(' ');
+  const capName = [];
+
+  for (const n of names) {
+    capName.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(...capName);
+};
+
+capitalizeName2('jessica ann smith davis'); //Jessica Ann Smith Davis
+capitalizeName2('laura loyola'); //Laura Loyola
+
+//padding a string
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+')); //+++++++++++Go to gate 23!
+//padding means to add a number of characters to the string until the string has a certain desired length
+console.log('laura'.padStart(25, '+')); //++++++++++++++++++++laura, it has a bunch more or '+' but the length of the string is still 25
+console.log(message.padStart(25, '+').padEnd(35, '+')); //+++++++++++Go to gate 23!++++++++++
+//it only added more 10 '+' because the lenght of the string was already 25 characters long
+
+const maskCreditCard = function (number) {
+  // const str = String(number);
+  const str = number + ''; //this works because when one of the operands of the plus sign is a string, it will convert all the operands to a string
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(12345678)); //****5678
+console.log(maskCreditCard(1234567812345678)); //************5678
+console.log(maskCreditCard('56781234567812345678')); //****************5678
+
+//repeat
+const message2 = 'Bad weather... All Departues Delayed... ';
+console.log(message2.repeat(5)); //Bad weather... All Departues Delayed... Bad weather... All Departues Delayed... Bad weather... All Departues Delayed... Bad weather... All Departues Delayed... Bad weather... All Departues Delayed...
+//just one big string with the same message repeating over and over again
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+planesInLine(5); //There are 5 planes in line ✈️✈️✈️✈️✈️
+planesInLine(3); //There are 3 planes in line ✈️✈️✈️
