@@ -243,3 +243,58 @@ for (const [minutes, events] of gameEvents) {
 
 //yay i did this one all by myself :) really fun
 */
+
+// #4
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const input = document.querySelector('textarea').value;
+  const rows = input.split('\n');
+
+  for (const [i, inputNames] of rows.entries()) {
+    const newNames = inputNames.replaceAll('_', ' ');
+    const lowerNames = newNames.toLowerCase();
+
+    // lowerNames.trim(); is a much better way of doing:
+    let fixFirstName;
+    if (lowerNames.startsWith(' ')) {
+      fixFirstName = lowerNames.replace(' ', '');
+    } else {
+      fixFirstName = lowerNames;
+    }
+
+    const [firstWord, secondWord] = fixFirstName.split(' ');
+    const camelCase =
+      firstWord +
+      secondWord.replace(secondWord[0], secondWord[0].toUpperCase());
+    console.log(camelCase.padEnd(18) + '✅'.repeat(i + 1));
+  }
+
+  /*
+  //course answer
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(${output.padEnd(20)}${'✅'.repeat(i + 1)});
+  }
+  */
+});
+
+//test data
+// underscore_case
+//  first_name
+// Some_Variable
+//  calculate_AGE
+// delayed_departure
+
+//the output:
+// underscoreCase    ✅
+// firstName         ✅✅
+// someVariable      ✅✅✅
+// calculateAge      ✅✅✅✅
+// delayedDeparture  ✅✅✅✅✅
