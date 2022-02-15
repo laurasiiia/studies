@@ -126,3 +126,14 @@ console.log(addVAT(23)); //28.29
 //this is creating a brand new and more specific function based on a more general function, which is the 'addTax'. using 'bind' gives us a new function.
 
 //challenge, rewrite the code using 'function returning other function'. create a function that can return a function which will do what 'addVAT' does
+
+const tax = function (rate) {
+  return function (value) {
+    console.log(value + value * rate);
+  };
+};
+
+const taxVAT = tax(0.23);
+
+taxVAT(100);
+//jonas said it would be challenging but i found it pretty simple! should i be proud? lol

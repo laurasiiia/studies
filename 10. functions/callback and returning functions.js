@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 //functions accepting callback functions
 
 //lower-level functions:
@@ -81,3 +81,4 @@ greet('Hello')('Jonas'); //Hello Jonas
 const greet2 = greet => name => console.log(`${greet} ${name}`);
 
 greet2('Hello')('Laura'); //Hello Laura
+*/

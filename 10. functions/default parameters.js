@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const bookings = [];
 
 const createBooking = function (
@@ -31,3 +31,4 @@ createBooking('LH123', 5); //{flightNum: 'LH123', numPassengers: 5, price: 995}
 createBooking('LH123', 1000); //{flightNum: 'LH123', numPassengers: 1000, price: 199000}
 //this second value will ALWAYS specify the second paramenter, therefore the 'numPassagers'. so a nice trick is to set the unwanted parameter: 'undefined':
 createBooking('LH123', undefined, 1000); //{flightNum: 'LH123', numPassengers: 1, price: 1000}
+*/
