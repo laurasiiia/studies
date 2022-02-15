@@ -147,9 +147,6 @@ checkBaggage('Socks and camera'); //Welcome aboard!
 checkBaggage('Got some snacks and a gun for protection'); //You are not allowed on board
 //if we didnt put 'bagagge' on lower case, it wouldnt recognize 'Knife' from the first function call on line 145, because its case sensitive therefore 'knife' !== 'Knife'
 
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 //split and join
 console.log('a+very+nice+string'.split('+')); //(4) ['a', 'very', 'nice', 'string']
 //it stored the splitted elements into a new array
@@ -161,7 +158,7 @@ console.log(firstName); //Jonas
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName); //Mr. Jonas SCHMEDTMANN
 
-//join is the opposite of split. using empty strings to split or join can create new strings like line 161 or to cut words out like line 158
+//join is the opposite of split. using empty strings to split or join can create new strings like line 158 or to cut words out like line 155
 
 //capitalizing the full name
 const capitalizeName = function (name) {
