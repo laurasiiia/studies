@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 const flight = 'LH234';
 const jonas = {
   name: 'Jonas Schmedtmann',
@@ -41,4 +41,3 @@ checkIn(flight, jonas); //alert: Check In, alert: Wrong passport!
 //we have two functions manipulating the same object and this is creating a problem, because when we manipulated the 'jonas' in the 'newPassport', it reflected on the outside object, that got passed into the 'checkIn' and its not the same as the original one.
 
 //js does not have passing by reference, only passing by value
-*/
